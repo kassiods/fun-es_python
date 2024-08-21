@@ -3,29 +3,34 @@
 2-O progama deverá fazer isso através de uma função, com uma versão recursiva a outra não recursiva
 3-O progama deverá verificar qual das versões da função efetua o calculo mais rápido.
 '''
+
 import time
 
 #Função iterativa para calcular o n-ésimo número de Fibonacci
 def fibonacci_iterativa(n):
-    a, b = 0, 1
-    for _ in range(n):
-        a, b = b, a + b
+    a, b = 1, 1
+    for _ in range(2,n): #variando de 2 ate o numero que vai calcular
+        a, b = b, a + b #vai pegar e retornar a e calcular os outros elementos
     return a
 
 #Função recursiva para calcular o n-ésimo número de Fibonacci
 def fibonacci_recursiva(n):
-    if n <= 1:
-        return n
-    return fibonacci_recursiva(n - 1) + fibonacci_recursiva(n - 2)
+    if n == 0:
+        return 1
+    elif n == 1:
+        return 1
+    else:
+        return fibonacci_recursiva(n - 1) + fibonacci_recursiva(n - 2)
+
 
 #Calculando e medindo o tempo da função iterativa
 começa = time.time()
-fibonacci_iterativa(1000000)
+fibonacci_iterativa(10000)
 tempo_interativo = time.time() - começa
 
 # Calculando e medindo o tempo da função recursiva (com um número pequeno)
 começa = time.time()
-fibonacci_recursiva(1000000)
+fibonacci_recursiva(10000)
 tempo_recursivo = time.time() - começa
 
 print(f"Tempo de execução da função iterativa: {tempo_interativo:.6f} segundos")

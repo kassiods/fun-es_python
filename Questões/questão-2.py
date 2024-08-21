@@ -46,3 +46,6 @@ inicio=time.time()
 print(busca_binaria(lista, busca, 0, len (lista)-1))
 fim=time.time()
 print(f"o tempo de execução da bsuca binaria com recursão foi de {fim-inicio} segundos")
+
+if busca_binaria<busca_binaria_normal:
+    print()
